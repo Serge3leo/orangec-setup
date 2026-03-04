@@ -6,6 +6,13 @@ inputs:
     required: false
     description: If caching should be used
     default: true
+  cmake-update:
+    required: false
+    description: Instal last CMake version from MSYS2
+    default: false
+  key-prefix:
+    required: false
+    description: Add prefix to cache key (for refresh or identification)
   msystem:
     required: false
     description: >-
@@ -33,8 +40,8 @@ runs:
         cache: ${{ inputs.cache }}
         pacboy: >-
           binutils:p
-          cmake:p
           make:p
+          ${{ case(fromJSON(inputs.verbose), 'cmake:p', '') }}
 
     - name: MSYS2 PATH
       if: ${{ 'skip' != inputs.msystem }}
@@ -62,7 +69,7 @@ runs:
       id: od
       shell: pwsh
       run: |
-        $key = "OrangeC_${{ inputs.version }}"
+        $key = "${{ inputs.key-prefix }}_OrangeC_${{ inputs.version }}_0.4"
         $od = "C:\Program Files (x86)\OrangeC"
         mkdir "$od"
         <# TODO: probably don't needed?
@@ -96,7 +103,7 @@ runs:
     - name: OrangeC environments variables
       shell: pwsh
       run: |
-        cmd.exe /c "`"${{ steps.pd.outputs.pd }}\varsocc.bat`" && set" | `
+        cmd.exe /c "`"${{ steps.od.outputs.od }}\varsocc.bat`" && set" | `
           .{process{
             if ($_ -match '^((orangec|path)[^=]*)=(.*)') {
               Set-Variable ("od_" + $matches[1]) $matches[3]
