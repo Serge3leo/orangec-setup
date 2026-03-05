@@ -70,7 +70,11 @@ runs:
       shell: pwsh
       run: |
         $key = "${{ inputs.key-prefix }}_OrangeC_${{ inputs.version }}_0.4"
-        $od = "C:\Program Files (x86)\OrangeC"
+        if ($${{ startsWith(inputs.version, '6.0') }}) {
+          $od = "C:\Program Files (x86)\Orange C 386"
+        } else {
+          $od = "C:\Program Files (x86)\OrangeC"
+        }
         mkdir "$od"
         <# TODO: probably don't needed?
           $key += "_${{ runner.os }}"
