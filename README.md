@@ -1,9 +1,12 @@
 [![CMake on multiple platforms](https://github.com/Serge3leo/orangec-msys2/actions/workflows/cmake-multi-platform.yml/badge.svg?branch=main)](https://github.com/Serge3leo/orangec-msys2/actions/workflows/cmake-multi-platform.yml)
 
 # orangec-msys2
-Installs the OrangeC compiler and configures paths and environment variables
-for the possibility of using the CMake generator "MSYS Makefiles" with the
-pre-installed MSYS2 image.
+It installs the OrangeC compiler, MSYS2, and configures paths and variables for
+the ability to use the CMake "MSYS Makefiles" generator.
+
+## WARNING
+Version 6.0.42.1 (6.42.1) of Chocolatey Software is incompatible with CMake.
+You can use version 6.73.1 or higher.
 
 # Usage
 ```
@@ -29,7 +32,18 @@ An example with a CMake project can be see:
   - Type: `boolean`
   - Default: `true`
 
-To speed up re-use, cache `MSYS2` and the installation directory Pelles C.
+To speed up re-use, cache `MSYS2` and the installation directory OrangeC.
+
+## cmake-update
+  - Type: `boolean`
+  - Default: `false`
+
+Instal last CMake version from MSYS2.
+
+## key-prefix
+  - Type: `string`
+
+Add prefix to cache key (for refresh or identification).
 
 ## msystem
   - Type: `string`

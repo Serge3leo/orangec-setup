@@ -1,9 +1,12 @@
 [![CMake on multiple platforms](https://github.com/Serge3leo/orangec-msys2/actions/workflows/cmake-multi-platform.yml/badge.svg?branch=main)](https://github.com/Serge3leo/orangec-msys2/actions/workflows/cmake-multi-platform.yml)
 
 # orangec-msys2
-Устанавливает компилятор OrangeC и настраивает пути и переменные для
-возможности использования CMake генератора "MSYS Makefiles" совместно с
-предустановленным в образе MSYS2.
+Устанавливает компилятор OrangeC, MSYS2 и настраивает пути и переменные для
+возможности использования CMake генератора "MSYS Makefiles".
+
+## ПРЕДУПРЕЖДЕНИЕ
+Версия 6.0.42.1 (6.42.1) от Chocolatey Software несовместима с CMake. Вы можете
+использовать версию 6.73.1 или выше.
 
 # Использование
 ```
@@ -30,7 +33,18 @@
   - Значение по умолчанию: `true`
 
 Для ускорения повторного использования, кэшировать `MSYS2` и каталог установки
-Pelles C.
+OrangeC.
+
+## cmake-update
+  - Тип: `boolean`
+  - Значение по умолчанию: `false`
+
+Устанавливает в MSYS2 последнюю версию CMake.
+
+## key-prefix
+  - Тип: `string`
+
+Добавляет префикс к ключу кэш (для обновления или идентификации).
 
 ## msystem
   - Тип: string
