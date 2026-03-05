@@ -25,46 +25,37 @@ jobs:
       # matrix combinations. Consider changing this to true when your workflow
       # is stable.
 
-      fail-fast: false
+      fail-fast: true
 
-      # Set up a matrix to run the following 3 configurations:
+      # Set up a matrix to run the following configurations:
       #
-      # 1. <Latest OrangeC compiler toolchain on the default runner image,
-      # windows-2025-vs2026, "MSYS Makefiles">
+      # 1. <Latest OrangeC, windows-2025-vs2026, "MSYS Makefiles">
       #
-      # 2. <Latest OrangeC compiler toolchain on the default runner image,
-      # windows-2025, "MSYS Makefiles"> (windows-latest at 26.02.2026)
-      #
-      # 3. <Latest OrangeC compiler toolchain on the default runner image,
-      # windows-2022, "MSYS Makefiles">
+      # 2. <OrangeC 6.73, windows-2022, "MSYS Makefiles">
       #
       # To add more build types (Release, Debug, RelWithDebInfo, etc.)
       # customize the build_type list.
 
       matrix:
+        version: ["", 6.73.1]  # 6.0.42.1 (6.42.1) don't supported by CMake
         c_compiler: [occ]
-        os: [windows-2025-vs2026, windows-2025, windows-2022]
+        cpp_compiler: [occ]
         build_type: [Release]
+        generator: ["MSYS Makefiles"]
+        platform: [win32]
+        # cmake_add: [--debug-trycompile]
         include:
-          - c_compiler: occ
-            cpp_compiler: occ
-            generator: "MSYS Makefiles"
-            platform: "win32"
+          - version: ""  # Last, 7.0.7 at Mar 5, 2026
+            os: windows-2025-vs2026
+          - version: 6.73.1
+            os: windows-2022
 
     steps:
       - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v6
-        with:
-          python-version: '3.13'
-
-      - name: Install python module
-        run: |
-          python -c "import sys; print(sys.version); print(sys.executable)"
-          python -m pip install yamllint
-
       - name: Lint
         run: |
+          python -m pip install yamllint
           python -m yamllint --list-file .
           python -m yamllint .
 
@@ -82,8 +73,9 @@ jobs:
       - name: Test action (Setup OrangeC with pre-installed MSYS2 for CMake)
         uses: ./
         with:
-          version: 6.73.1
-          verbose: true
+          version: ${{ matrix.version }}
+          # verbose: true
+          # cmake-update: true
 
       - name: Configure CMake
         # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only
