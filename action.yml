@@ -51,7 +51,7 @@ runs:
         msystem: ${{ inputs.msystem }}
         cache: ${{ inputs.cache }}
         # Workaround, `setup-msys2` don't accepted empty string
-        install: ${{ case('' == inputs.install, 'pactoys', inputs.install }}
+        install: ${{ case('' == inputs.install, 'pactoys', inputs.install) }}
         pacboy: >-
           binutils:p
           make:p
