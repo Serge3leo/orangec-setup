@@ -19,7 +19,7 @@
   - uses: Serge3leo/orangec-msys2@v0
     with:
       version: 6.73.1
-      verbose: on
+      verbose: true
 ```
 
 Пример совместного использование в проекте CMake можно увидеть:
