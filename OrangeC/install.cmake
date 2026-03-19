@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: BSD-2-Clause
 # SPDX-FileCopyrightText: 2026 Сергей Леонтьев (leo@sai.msu.ru)
 
-file(REAL_PATH "_ids_.cmake" ids BASE_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}")
-include(${ids})
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}")
+include(_patches_)
 
 message("detect: CMAKE_ROOT=${CMAKE_ROOT}")
 file(READ "${CMAKE_ROOT}/Modules/Compiler/OrangeC.cmake" m)
