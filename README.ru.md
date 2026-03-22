@@ -1,8 +1,8 @@
 [![CMake on multiple platforms](https://github.com/Serge3leo/orangec-msys2/actions/workflows/cmake-multi-platform.yml/badge.svg?branch=main)](https://github.com/Serge3leo/orangec-msys2/actions/workflows/cmake-multi-platform.yml)
 
 # orangec-msys2
-Устанавливает компилятор OrangeC, MSYS2 и настраивает пути и переменные для
-возможности использования CMake генератора "MSYS Makefiles".
+Устанавливает компилятор OrangeC и настраивает пути и переменные для
+возможности использования CMake.
 
 Смотрите так же [Исправления CMake модулей поддержки Orange C](
 OrangeC/README.ru.md).
@@ -47,6 +47,15 @@ OrangeC.
 https://github.com/marketplace/actions/clean-cache) или
 https://github.com/marketplace/actions/clean-cache-action .
 
+## cmake
+  - Тип: `string`
+  - Допустимые значения: исполняемая команда (путь) `cmake`
+  - Значение по умолчанию: `cmake`
+
+Задаёт команду `cmake`, используемую при установке модулей поддержки (т.е.
+после установки именно эта команда `cmake` будет поддерживать компилятор Pelles
+C).
+
 ## cmake-module
   - Тип: `string`
   - Допустимые значения: `check | always | not`
@@ -62,42 +71,10 @@ https://github.com/marketplace/actions/clean-cache-action .
 ### no
 Не исправлять модули поддержки Orange C.
 
-## cmake-update
-  - Тип: `boolean`
-  - Значение по умолчанию: `false`
-
-Устанавливает в MSYS2 последнюю версию CMake.
-
-## install
-  - Тип: `string`
-  - Допустимые значения: список пакетов, разделенных пробелами
-
-Установка дополнительных пакетов после обновления системы поддерживается с
-помощью опции install.  См. [Setup MSYS2, install](
-https://github.com/msys2/setup-msys2?tab=readme-ov-file#install).
-
 ## key-prefix
   - Тип: `string`
 
 Добавляет префикс к ключу кэш (для обновления версии, идентификации и т.п.).
-
-## msystem
-  - Тип: string
-  - Допустимые значения: `msys | mingw64 | mingw32 | ucrt64 | clang64 |
-    clangarm64 | skip`
-  - Значение по умолчанию: `mingw64`
-
-Задаёт значение переменной окружения [`MSYSTEM`](
-https://www.msys2.org/docs/environments) и `PATH`.  Регистр игнорируется.  Если
-равно `skip`, то настройка MSYS2 пропускается.
-
-## pacboy
-  - Тип: `string`
-  - Допустимые значения: список пакетов, разделенных пробелами
-
-Установка дополнительных пакетов после обновления системы поддерживается с
-помощью опции pacboy.  См. [Setup MSYS2, pacboy](
-https://github.com/msys2/setup-msys2?tab=readme-ov-file#pacboy).
 
 ## verbose
   - Тип: `boolean`
