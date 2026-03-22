@@ -45,7 +45,7 @@ jobs:
         with:
           version: ${{ matrix.version }}
           verbose: true
-          cache: false
+          # cache: false
 
       - name: Configure CMake
         run: >
