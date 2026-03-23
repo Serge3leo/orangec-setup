@@ -1,5 +1,5 @@
 ---
-name: orangec-setuo
+name: orangec-setup
 description: Setup OrangeC for CMake
 branding:
   color: blue
