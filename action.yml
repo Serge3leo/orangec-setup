@@ -43,16 +43,16 @@ runs:
       shell: pwsh
       run: |
         if ("${{ inputs.cmake-module }}" -cnotmatch "^(always|check|no)") {
-          Write-Error ("``cmake-module`` allowed values: ``check | always | no``")
+          Write-Error("``cmake-module`` allowed values: ``check|always|no``")
           Exit 1
         }
         if ("x" -ne "x${{ inputs.version }}") {
           $ov = "${{ inputs.version }}" -replace "[^0-9.]*$"
           $ocmk = "6.73"
           if ([version]$ov -lt [version]$ocmk) {
-            Write-Error ("Orange C ${{ inputs.version }}" + `
-                         " incompatible with CMake`n" + `
-                         "Use Orange C >= $ocmk or ``cmake-module: 'no'``")
+            Write-Error("Orange C ${{ inputs.version }}" + `
+                        " incompatible with CMake`n" + `
+                        "Use Orange C >= $ocmk or ``cmake-module: 'no'``")
             Exit 1
           }
         }
