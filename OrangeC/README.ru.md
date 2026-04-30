@@ -9,7 +9,9 @@
 - `.rc` файлов ресурсов Windows;
 - Выбора версий стандартов C/C++.
 
-Для установки требуются права на создание и модификацию файлов в подкаталогах
+Для CMake 4.3.20260327 и более ранних.
+
+Установка требуют прав на создание и модификацию файлов в подкаталогах
 `CMAKE_ROOT` текущего CMake.
 
 # Использование
@@ -51,4 +53,5 @@ cmake -P OrangeC\detect.cmake
   или выше.
 
 #  Ссылки
-Ссылки на запросы изменений CMake будут даны позднее.
+- [OrangeC: Can't create shared library (DLL) with Makefile generators](
+  https://gitlab.kitware.com/cmake/cmake/-/work_items/27716)
