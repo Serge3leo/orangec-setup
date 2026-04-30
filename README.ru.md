@@ -14,13 +14,13 @@ OrangeC/README.ru.md).
 
 # Использование
 ```
-  - uses: Serge3leo/orangec-setup@v0
+  - uses: Serge3leo/orangec-setup@v1
 ```
 
 или
 
 ```
-  - uses: Serge3leo/orangec-setup@v0
+  - uses: Serge3leo/orangec-setup@v1
     with:
       version: 6.73.1
       verbose: true
@@ -52,8 +52,8 @@ https://github.com/marketplace/actions/clean-cache-action .
   - Значение по умолчанию: `cmake`
 
 Задаёт команду `cmake`, используемую при установке модулей поддержки (т.е.
-после установки именно эта команда `cmake` будет поддерживать компилятор Pelles
-C).
+после установки именно эта команда `cmake` будет поддерживать компилятор
+OrangeC).
 
 ## cmake-module
   - Тип: `string`
@@ -61,14 +61,14 @@ C).
   - Значение по умолчанию: `check`
 
 ### always
-Всегда исправлять модули поддержки Orange C.
+Всегда исправлять модули поддержки OrangeC.
 
 ### check
-Проверить наличие.  Исправлять модули поддержки Orange C, если функции не
+Проверить наличие.  Исправлять модули поддержки OrangeC, если функции не
 поддерживаются.
 
 ### no
-Не исправлять модули поддержки Orange C.
+Не исправлять модули поддержки OrangeC.
 
 ## key-prefix
   - Тип: `string`
@@ -85,11 +85,12 @@ C).
   - Тип: `string`
 
 Если не задан, устанавливается последняя доступная версия.  Список доступных
-версии приведён:
-[https://community.chocolatey.org/packages/orangec](https://community.chocolatey.org/packages/orangec).
+версии приведён: [https://community.chocolatey.org/packages/orangec](
+https://community.chocolatey.org/packages/orangec).
 
 # Ссылки
-- [OrangeC: Can't create shared library (DLL) with Makefile generators](https://gitlab.kitware.com/cmake/cmake/-/work_items/27716)
+- [OrangeC: Can't create shared library (DLL) with Makefile generators](
+  https://gitlab.kitware.com/cmake/cmake/-/work_items/27716)
 
 # Участие
 Замечания (issues), добавления или исправления (pr) - принимаются и

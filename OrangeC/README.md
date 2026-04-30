@@ -4,7 +4,7 @@
  -->
 
 # Patches for Orange C support modules CMake
-They patches support for:
+They patches support for CMake early 4.3.20260327:
 - Dynamic libraries;
 - Windows resource files `.rc`;
 - Selecting C/C++ standards versions.
@@ -51,7 +51,8 @@ Checks for feature support for the current CMake.
   7.0 or higher.
 
 # Links
-Links to CMake issues and/or pull requests will be provided later.
+- [OrangeC: Can't create shared library (DLL) with Makefile generators](
+  https://gitlab.kitware.com/cmake/cmake/-/work_items/27716)
 
 # Disclaimer
 Sorry for my best English.  Alas, this file is actually a yandex translation of

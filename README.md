@@ -13,13 +13,13 @@ support modules.  You can use version 6.73.1 (partially compatible),
 
 # Usage
 ```
-  - uses: Serge3leo/orangec-setup@v0
+  - uses: Serge3leo/orangec-setup@v1
 ```
 
 or
 
 ```
-  - uses: Serge3leo/orangec-setup@v0
+  - uses: Serge3leo/orangec-setup@v1
     with:
       version: 6.73.1
       verbose: true
@@ -49,9 +49,9 @@ https://github.com/marketplace/actions/clean-cache-action .
   - Allowed values: executable command (path) `cmake`
   - Default value: `cmake`
 
-Sets the `cmake` command used when installing support modules (i.e.
-after installation, this particular `cmake` command will support the Pelles
-C compiler).
+Sets the `cmake` command used when installing support modules (i.e.  after
+installation, this particular `cmake` command will support the OrangeC
+compiler).
 
 ## cmake-module
   - Type: `string`
@@ -59,14 +59,14 @@ C compiler).
   - Default: `check`
 
 ### always
-Always patching Orange C support modules.
+Always patching OrangeC support modules.
 
 ### check
-Check availability. Patch Orange C support modules if features are not
+Check availability. Patch OrangeC support modules if features are not
 supported.
 
 ### no
-Do not patch the Orange C support modules.
+Do not patch the OrangeC support modules.
 
 ## key-prefix
   - Type: `string`
@@ -84,10 +84,12 @@ Show the paths and versions of the main components: `occ`, `make`, `cmake`, ...
 
 If not specified, the latest available version is installed.  The list of
 available versions is given below:
-[https://community.chocolatey.org/packages/orangec](https://community.chocolatey.org/packages/orangec).
+[https://community.chocolatey.org/packages/orangec](
+https://community.chocolatey.org/packages/orangec).
 
 # Links
-- [OrangeC: Can't create shared library (DLL) with Makefile generators](https://gitlab.kitware.com/cmake/cmake/-/work_items/27716)
+- [OrangeC: Can't create shared library (DLL) with Makefile generators](
+  https://gitlab.kitware.com/cmake/cmake/-/work_items/27716)
 
 # Contributing
 Issues or PRs are accepted and welcome.
